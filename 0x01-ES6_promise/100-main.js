@@ -1,4 +1,4 @@
-import asyncUploadUser from "./100-main";
+import asyncUploadUser from "./100-await";
 
 const test = async () => {
     const value = await asyncUploadUser();
@@ -6,3 +6,4 @@ const test = async () => {
 };
 
 test();
+

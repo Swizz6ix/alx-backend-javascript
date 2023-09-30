@@ -6,11 +6,11 @@ export default function handleProfileSignup(firstName, lastName, filename) {
     .then(([signupRes, uploadRes]) => [
       {
         status: signupRes.status,
-        value: signupRes.status === 'fulfilled' ? signupRes.value : signupRes.reason
+        value: signupRes.status === 'fulfilled' ? signupRes.value : signupRes.reason,
       },
       {
         status: uploadRes.status,
-        value: uploadRes.status === 'fulfilled' ? uploadRes.value : uploadRes.reason.message
+        value: uploadRes.status === 'fulfilled' ? uploadRes.value : uploadRes.reason.message,
       },
     ]);
 }

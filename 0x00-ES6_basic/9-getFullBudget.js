@@ -1,4 +1,4 @@
-import getBudgetObject from './7-getBudgetObject.js';
+import getBudgetObject from './7-getBudgetObject';
 
 // Rewrite getFullBudgetObject to use ES6 method properties in the fullBudget object
 export default function getFullBudgetObject(income, gdp, capita) {

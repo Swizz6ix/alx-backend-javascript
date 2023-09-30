@@ -11,7 +11,7 @@ export default class HolbertonCourse {
 
   set name(name) {
     if (typeof name !== 'string') {
-      return new TypeError("Name must be a string")
+      return new TypeError('Name must be a string')
     } else {
       return this._name = name
     };
@@ -35,12 +35,12 @@ export default class HolbertonCourse {
 
   set students(students) {
     if (!Array.isArray(students)) {
-      throw new TypeError("Students must be an array")
+      throw new TypeError('Students must be an array')
     } 
     
     for (let student of students) {
       if (typeof student !== "string")
-        throw new TypeError("Student must be a string")
+        throw new TypeError('Student must be a string')
     }
     
     return this._students = students;

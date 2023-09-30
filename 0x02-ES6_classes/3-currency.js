@@ -14,13 +14,13 @@ export default class Currency {
 
   set code(code) {
     if (typeof code !== 'string')
-      throw new TypeError("Code must be a string");
+      throw new TypeError('Code must be a string');
     return this._code = code;
   };
 
   set name(name) {
     if (typeof name !== 'string')
-      throw new TypeError("Name must be a string");
+      throw new TypeError('Name must be a string');
     return this._name = name;
   };
 

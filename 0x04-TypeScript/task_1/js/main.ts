@@ -20,6 +20,26 @@ function printTeacher(teacher: printTeacherFunction) {
   return `${teacher.firstName[0]}. ${teacher.lastName}`;
 }
 
-class StudentClass {
-  constructor()
+interface StudentDetails {
+  _firstName: string;
+  _lastName: string;
+}
+
+interface StudentConstruct {
+  firstName: string;
+  lastName: string;
+}
+class StudentClass implements StudentDetails {
+  _firstName: string;
+  _lastName: string;
+  constructor(student: StudentConstruct) {
+    this._firstName = student.firstName;
+    this._lastName = student.lastName;
+  }
+  workOnHomeWork() {
+    return 'Currently working';
+  }
+  displayName() {
+    return this._firstName;
+  }
 }

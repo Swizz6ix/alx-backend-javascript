@@ -3,7 +3,6 @@ export default function getListStudentIds(arr) {
   if (!Array.isArray(arr)) {
     return arrayId;
   }
-  arr.map((arrId) => arrayId.push(arrId.id)
-    );
+  arr.map((arrId) => arrayId.push(arrId.id),);
   return arrayId;
 }

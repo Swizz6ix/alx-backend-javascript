@@ -4,7 +4,7 @@ export default class Building {
       && this.constructor !== Building) {
       throw new TypeError('Class extending BUilding must override evacuationMessage');
     }
-    this._sqft = sqft;
+    this.sqft = sqft;
   }
 
   get sqft() {

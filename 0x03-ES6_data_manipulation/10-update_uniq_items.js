@@ -3,9 +3,9 @@ export default function updateUniqueItems(map) {
     throw new Error('Cannot process');
   }
 
-  const updateMap = new Map();
   map.forEach((quantity, item) => {
-    updateMap.set(item, quantity === 1? 100 : quantity);
+    if (quantity === 1){
+      map.set(item, 100)
+    }
   });
-  return updateMap;
 }

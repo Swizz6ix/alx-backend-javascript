@@ -6,9 +6,9 @@ export default function cleanSet(set, str) {
   for (const value of set.values()) {
     if (typeof value === 'string' && value.startsWith(str)) {
       const valueSubstr = value.substring(str.length);
-      
-      if (valueSubstr && valueSubstr !== value)  {
-        parseInt.push(valueSubstr);
+
+      if (valueSubstr && valueSubstr !== value) {
+        parts.push(valueSubstr);
       }
     }
   }

@@ -13,8 +13,7 @@ export default class HolbertonCourse {
     if (typeof name !== 'string') {
       return new TypeError('Name must be a string');
     }
-    const vd = this._name = name;
-    return vd;
+    this._name = name;
   }
 
   get length() {
@@ -38,9 +37,9 @@ export default class HolbertonCourse {
       throw new TypeError('Students must be an array');
     }
 
-      if (!value.every((student) => typeof student === 'string')) {
-        throw new TypeError('Student must be a string');
-      }
+    if (!value.every((student) => typeof student === 'string')) {
+      throw new TypeError('Student must be a string');
+    }
     this._students = value;
   }
 }

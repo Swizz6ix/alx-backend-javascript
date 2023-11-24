@@ -1,10 +1,13 @@
-const express = require("express");
+/* eslint-disable linebreak-style */
+const express = require('express');
 
-export const app = express()
+const app = express();
 
-app.get("/", (_, res) => {
-    res.send("Hello Holberton School");
-})
-app.listen(1245, () => {
-    console.log("server started and listening to port 1245");
+app.get('/', (_, res) => {
+  res.send('Hello Holberton School');
 });
+app.listen(1245, () => {
+  console.log('server started and listening to port 1245');
+});
+
+module.exports = app;

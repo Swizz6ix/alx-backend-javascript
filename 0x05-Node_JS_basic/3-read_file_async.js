@@ -1,46 +1,49 @@
-const fs = require("fs");
+const fs = require('fs');
 
-export const countStudents = (path) => new Promise((resolve, reject) => {
-  fs.readFile(path, "utf-8", (err, data) => {
+const countStudents = (path) => new Promise((resolve, reject) => {
+  fs.readFile(path, 'utf-8', (err, data) => {
     if (err) {
-      reject(new Error("cannot load the database"));
+      reject(new Error('cannot load the database'));
     }
 
     if (data) {
-      const line = data.trim().split("\n");
+      const line = data.trim().split('\n');
       process.stdout.write(
-          `Number of students: ${line.length - 1}\n`
+        `Number of students: ${line.length - 1}\n`,
       );
-      //Remove csv column header
+
+      // Remove csv column header
       const fileBody = line.splice(1);
       const fieldGroups = [];
       const fieldCount = {};
 
       for (let i = 0; i < fileBody.length; i++) {
-        const field = fileBody[i].split(",")[3].trim("\r");
+        const field = fileBody[i].split(',')[3].trim('\r');
         if (fieldGroups.includes(field)) {
-            continue;
+          continue;
         } else {
-            fieldGroups.push(field)
+          fieldGroups.push(field);
         }
       }
       for (let i = 0; i < fieldGroups.length; i++) {
         fieldCount[fieldGroups[i]] = { count: 0, list: [] };
         for (let j = 0; j < fileBody.length; j++) {
-          const currentField = fileBody[j].trim("\r").split(",");
+          const currentField = fileBody[j].trim('\r').split(',');
           if (currentField.includes(fieldGroups[i])) {
-            fieldCount[fieldGroups[i]]["count"] += 1;
-            fieldCount[fieldGroups[i]]["list"].push(
-              fileBody[j].split(",")[0]
+            fieldCount[fieldGroups[i]].count += 1;
+            fieldCount[fieldGroups[i]].list.push(
+              fileBody[j].split(',')[0],
             );
           }
         }
         console.log(
           `Number of Students in ${fieldGroups[i]}:
-          ${fieldCount[fieldGroups[i]]["count"]}.List: ${fieldCount[fieldGroups[i]]["list"].join(", ")}`
+          ${fieldCount[fieldGroups[i]].count}.List: ${fieldCount[fieldGroups[i]].list.join(', ')}`,
         );
       }
-      resolve(true)
+      resolve(true);
     }
   });
 });
+
+module.exports = countStudents;

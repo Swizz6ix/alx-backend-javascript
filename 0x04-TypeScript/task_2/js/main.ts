@@ -1,5 +1,5 @@
 interface DirectorInterface {
-  workFromHome(): string;
+	workFromHome(): string;
 	getCoffeeBreak(): string;
 	workDirectorTasks(): string;
 }
@@ -60,7 +60,7 @@ function teachClass(todayClass: Subjects): string {
 	if (todayClass === 'Math'){
 		return 'Teaching Math';
 	} else if (todayClass === 'History'){
-		return 'TEaching History';
+		return 'Teaching History';
 	} else {
 		return 'Invalid Subject';
 	}

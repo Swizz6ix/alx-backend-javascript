@@ -12,7 +12,7 @@ const DB_FILENAME = process.argv.length > 2 ? process.argv[2] : '';
  */
 const countStudents = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf-8', (err, data) => {
-    const output = []
+    const output = [];
     output.push('This is the list of our students');
     if (err) {
       reject(new Error('Cannot load the database'));
@@ -26,7 +26,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       const fieldGroups = [];
       const fieldCount = {};
 
-      for (let i = 0; i < fileBody.length; i++) {
+      for (let i = 0; i < fileBody.length; i += 1) {
         const field = fileBody[i].split(',')[3].trim('\r');
         if (fieldGroups.includes(field)) {
           continue;
@@ -34,10 +34,10 @@ const countStudents = (path) => new Promise((resolve, reject) => {
           fieldGroups.push(field);
         }
       }
-      for (let i = 0; i < fieldGroups.length; i++) {
+      for (let i = 0; i < fieldGroups.length; i += 1) {
         fieldCount[fieldGroups[i]] = { count: 0, list: [] };
-        for (let j = 0; j < fileBody.length; j++) {
-          const currentField  = fileBody[j].trim('\r').split(',');
+        for (let j = 0; j < fileBody.length; j += 1) {
+          const currentField = fileBody[j].trim('\r').split(',');
           if (currentField.includes(fieldGroups[i])) {
             fieldCount[fieldGroups[i]].count += 1;
             fieldCount[fieldGroups[i]].list.push(
@@ -59,7 +59,7 @@ app.get('/', (_, res) => {
   res.send('Hello Holberton School!');
 });
 
-app.get('/students', async(_, res) => {
+app.get('/students', async (_, res) => {
   res.setHeader('Content-Type', 'text/plain');
   try {
     const response = await countStudents(DB_FILENAME);

@@ -1,4 +1,5 @@
 const fs = require('fs');
+
 const readDatabase = (path) => new Promise((resolve, reject) => {
   if (!path) {
     reject(new Error('Cannot load database'));
@@ -10,7 +11,8 @@ const readDatabase = (path) => new Promise((resolve, reject) => {
       }
       if (data) {
         const fileLines = data.toString('utf-8').trim().split('\n');
-        const studentGroups = {}, eachLine = [];
+        const studentGroups = {};
+        const eachLine = [];
         let studentPropNames;
         for (const lineRow of fileLines) {
           eachLine.push(lineRow.trim('\r'));
@@ -21,7 +23,7 @@ const readDatabase = (path) => new Promise((resolve, reject) => {
         for (const line of eachLine.slice(1)) {
           const studentRecord = line.split(',');
           const studentPropValues = studentRecord.slice(0, studentRecord.length - 1);
-          const field = studentRecord[studentRecord.length - 1]
+          const field = studentRecord[studentRecord.length - 1];
           if (!Object.keys(studentGroups).includes(field)) {
             studentGroups[field] = [];
           }
@@ -32,10 +34,10 @@ const readDatabase = (path) => new Promise((resolve, reject) => {
             Object.fromEntries(studentEntries),
           );
         }
-        resolve(studentGroups)
+        resolve(studentGroups);
       }
-    })
+    });
   }
 });
 
-export default readDatabase
+export default readDatabase;

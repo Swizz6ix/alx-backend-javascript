@@ -16,7 +16,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
 
     if (data) {
       const line = data.trim().split('\n');
-      output.push(`Number of students: ${line.length - 1}\n`);
+      output.push(`Number of students: ${line.length - 1}`);
       // Remove csv column header
       const fileBody = line.splice(1);
       const fieldGroups = [];
@@ -24,9 +24,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
 
       for (let i = 0; i < fileBody.length; i += 1) {
         const field = fileBody[i].split(',')[3].trim('\r');
-        if (fieldGroups.includes(field)) {
-          continue;
-        } else {
+        if (!fieldGroups.includes(field)) {
           fieldGroups.push(field);
         }
       }
@@ -42,8 +40,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
           }
         }
         output.push(
-          `Number of Students in ${fieldGroups[i]}:
-                  ${fieldCount[fieldGroups[i]].count}.List: ${fieldCount[
+          `Number of Students in ${fieldGroups[i]}: ${fieldCount[fieldGroups[i]].count}.List: ${fieldCount[
   fieldGroups[i]
 ].list.join(', ')}`,
         );
@@ -56,7 +53,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
 const app = http.createServer(async (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   if (req.url === '/') {
-    res.end('Hello HOlberton School!');
+    res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
     try {
       const result = await countStudents(DB_FILENAME);

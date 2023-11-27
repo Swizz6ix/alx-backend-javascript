@@ -26,7 +26,7 @@ const countStudents = (path) => {
 
   for (let i = 0; i < fieldGroups.length; i += 1) {
     fieldCount[fieldGroups[i]] = { count: 0, list: [] };
-    for (let j = 0; j < fileBody.length; j++) {
+    for (let j = 0; j < fileBody.length; j+= 1) {
       const currentField = fileBody[j].trim('\r').split(',');
       if (currentField.includes(fieldGroups[i])) {
         fieldCount[fieldGroups[i]].count += 1;

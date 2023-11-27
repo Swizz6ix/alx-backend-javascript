@@ -22,7 +22,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         if (!fieldGroups.includes(field)) {
           fieldGroups.push(field);
         }
-      }
+      };
       for (let i = 0; i < fieldGroups.length; i += 1) {
         fieldCount[fieldGroups[i]] = { count: 0, list: [] };
         for (let j = 0; j < fileBody.length; j += 1) {
@@ -35,8 +35,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
           }
         }
         console.log(
-          `Number of Students in ${fieldGroups[i]}:
-          ${fieldCount[fieldGroups[i]].count}.List: ${fieldCount[fieldGroups[i]].list.join(', ')}`,
+          `Number of Students in ${fieldGroups[i]}: ${fieldCount[fieldGroups[i]].count}.List: ${fieldCount[fieldGroups[i]].list.join(', ')}`,
         );
       }
       resolve(true);

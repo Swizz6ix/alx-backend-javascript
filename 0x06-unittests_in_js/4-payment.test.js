@@ -2,6 +2,7 @@ const sendPaymentRequestToApi = require('./4-payment');
 const sinon = require('sinon');
 const Utils = require('./utils');
 const expect = require('chai').expect
+let spyConsole;
 
 describe('calculateNumber(type, a, b)', function () {
   it('SUM the 2 rounded numbers', function () {
@@ -32,7 +33,6 @@ describe('calculateNumber(type, a, b)', function () {
 });
 
 describe('sendPaymentRequestToApi', function () {
-  let spyConsole;
   beforeEach(() => {
     spyConsole = sinon.spy(console, 'log');
   });
@@ -57,14 +57,14 @@ describe('sendPaymentRequestToApi', function () {
 
 describe('Use a fix return value with stub to test sendPaymentRequestToApi', function () {
   it('Test the sendPaymentRequestToApi endpoint', function () {
-    const spiedConsole = sinon.spy(console);
+    spyConsole = sinon.spy(console);
     const stubFnx = sinon.stub(Utils, 'calculateNumber');
     stubFnx.returns(10);
     sendPaymentRequestToApi(100, 20)
     expect(stubFnx.calledWith('SUM', 100, 20)).to.be.true;
     expect(stubFnx((100, 20))).to.be.equal(10);
-    expect(spiedConsole.log.calledWith('The total is: 10')).to.be.true;
+    expect(spyConsole.log.calledWith('The total is: 10')).to.be.true;
     stubFnx.restore();
-    spiedConsole.log.restore();
+    spyConsole.log.restore();
   });
 });

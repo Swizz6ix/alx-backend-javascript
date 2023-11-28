@@ -22,8 +22,8 @@ describe('http://localhost:7865/ get points', function () {
       done();
     });
   });
-  it('Get client request for cart of id iPhone', function (done) {
-    request.get('http://localhost:7865/cart/iPhone', (_, res, _body) => {
+  it('Get client request for cart of id iPhones', function (done) {
+    request.get('http://localhost:7865/cart/iPhones', (_, res, _body) => {
       expect(res.statusCode).to.be.equal(404);
       done();
     });

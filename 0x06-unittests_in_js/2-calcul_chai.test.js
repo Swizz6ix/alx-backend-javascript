@@ -1,7 +1,6 @@
 const expect = require('chai').expect;
 const calculateNumber = require('./2-calcul_chai');
 
-
 describe('calculateNumber(type, a, b)', function () {
   it('SUM the 2 rounded numbers', function () {
     expect(calculateNumber('SUM', 1.4, 4.5)).to.be.equal(6);
@@ -28,4 +27,4 @@ describe('calculateNumber(type, a, b)', function () {
     expect(calculateNumber('DIVIDE', 10.3, 0.3)).to.be.equal('Error');
     expect(calculateNumber('DIVIDE', 10.7, 0.2)).to.be.equal('Error');
   });
-})
+});

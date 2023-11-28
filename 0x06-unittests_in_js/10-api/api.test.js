@@ -50,7 +50,7 @@ describe('Login endpoint', () => {
         userName: 'BobDylan',
       }
     }, (error, response, body) => {
-      expect(body).to.equal('Welcome BobDulan');
+      expect(body).to.equal('Welcome BobDylan');
       done();
     });
   });

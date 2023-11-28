@@ -40,7 +40,7 @@ describe('sendPaymentRequestToApi', function () {
   afterEach(() => {
     spyConsole.restore();
   });
-
+  
   it('logs to the console the right message', () => {
     sendPaymentRequestToApi(100, 131)
     sendPaymentRequestToApi(100.3, 131.3)

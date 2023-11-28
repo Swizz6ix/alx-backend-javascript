@@ -22,7 +22,10 @@ describe('calculateNumber(type, a, b)', function () {
     assert.strictEqual(calculateNumber('DIVIDE', 7.0, -2.0), -3.5);
     assert.strictEqual(calculateNumber('DIVIDE', -2.0, -2.0), 1);
   });
-  it('DIVISION of 0 and 0', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', 0, 0), NaN);
+  it('it should return Error if b is equal to 0', () => {
+    assert.equal(calculateNumber('DIVIDE', 10.3, 0).toLowerCase(), 'error');
+    assert.strictEqual(calculateNumber('DIVIDE', 0, 0).toLowerCase(), 'error');
+    assert.strictEqual(calculateNumber('DIVIDE', 10.3, 0.3).toLowerCase(), 'error');
+    assert.strictEqual(calculateNumber('DIVIDE', 10.7, 0.2).toLowerCase(), 'error');
   });
 })

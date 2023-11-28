@@ -49,3 +49,17 @@ describe('http://localhost:7865/index_page', function () {
     })
   })
 });
+
+describe('Login endpoint', () => {
+  it('Returns the right message', (done) => {
+    const data = { userName: 'Guillaume' };
+    request.post('http://localhost:7865/login', {
+      json: {
+        userName: 'BobDylan',
+      }
+    }, (error, response, body) => {
+      expect(body).to.equal('Welcome BobDulan');
+      done();
+    });
+  });
+});

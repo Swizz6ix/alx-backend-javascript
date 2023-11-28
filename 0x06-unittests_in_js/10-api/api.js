@@ -25,11 +25,9 @@ app.get('/available_payments', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  let userName = "";
-  console.log('req', req)
+  let userName;
   if (req.body) {
-    userName = req.body.username;
-    console.log('se', userName)
+    userName = req.body.userName;
   }
   res.send(`Welcome ${userName}`);
 });

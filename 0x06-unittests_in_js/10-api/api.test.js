@@ -1,11 +1,9 @@
 const request = require('request');
 const expect = require('chai').expect;
 
-const url = 'http://localhost:7865/';
-
-describe('http://localhost:7865/index_page', function () {
+describe('http://localhost:7865/ get points', function () {
   it('Should make request to api endpoint and validates server request', function (done) {
-    request.get(url, (_, res, body) => {
+    request.get('http://localhost:7865/', (_, res, body) => {
       expect(res.statusCode).to.be.equal(200);
       expect(body).to.be.equal('Welcome to the payment system');
       done();
@@ -26,12 +24,6 @@ describe('http://localhost:7865/index_page', function () {
   });
   it('Get client request for cart of id iPhone', function (done) {
     request.get('http://localhost:7865/cart/iPhone', (_, res, _body) => {
-      expect(res.statusCode).to.be.equal(404);
-      done();
-    });
-  });
-  it('Post /login and return valid json reponse', function (done) {
-    request.post('http://localhost:7865/cart/phones', (_, res, _body) => {
       expect(res.statusCode).to.be.equal(404);
       done();
     });
@@ -59,6 +51,12 @@ describe('Login endpoint', () => {
       }
     }, (error, response, body) => {
       expect(body).to.equal('Welcome BobDulan');
+      done();
+    });
+  });
+  it('Post /login and return valid json response', function (done) {
+    request.post('http://localhost:7865/cart/phones', (_, res, _body) => {
+      expect(res.statusCode).to.be.equal(404);
       done();
     });
   });

@@ -15,7 +15,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
     const output = [];
     output.push('This is the list of our students');
     if (err) {
-      reject('Cannot load the database');
+      reject(new Error('Cannot load the database'));
     }
     if (data) {
       const line = data.trim().split('\n');

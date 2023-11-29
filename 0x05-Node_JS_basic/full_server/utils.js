@@ -18,7 +18,6 @@ const readDatabase = (path) => new Promise((resolve, reject) => {
         }
         const dbFieldNames = eachLine[0].split(',');
         const studentPropNames = dbFieldNames.slice(0, dbFieldNames.length - 1);
-        console.log("see", studentPropNames)
 
         for (const line of eachLine.slice(1)) {
           const studentRecord = line.split(',');

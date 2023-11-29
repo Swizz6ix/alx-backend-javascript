@@ -11,7 +11,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf-8', (err, data) => {
     const output = [];
     if (err) {
-      reject(new Error('cannot load the database'));
+      reject(new Error('Cannot load the database'));
     }
 
     if (data) {
@@ -41,8 +41,8 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         }
         output.push(
           `Number of students in ${fieldGroups[i]}: ${fieldCount[fieldGroups[i]].count}. List: ${fieldCount[
-  fieldGroups[i]
-].list.join(', ')}`,
+            fieldGroups[i]
+          ].list.join(', ')}`,
         );
       }
       resolve(output);

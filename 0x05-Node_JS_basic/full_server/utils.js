@@ -13,12 +13,12 @@ const readDatabase = (path) => new Promise((resolve, reject) => {
         const fileLines = data.toString('utf-8').trim().split('\n');
         const studentGroups = {};
         const eachLine = [];
-        let studentPropNames;
         for (const lineRow of fileLines) {
           eachLine.push(lineRow.trim('\r'));
         }
         const dbFieldNames = eachLine[0].split(',');
-        studentPropNames = dbFieldNames.slice(0, dbFieldNames.length - 1);
+        const studentPropNames = dbFieldNames.slice(0, dbFieldNames.length - 1);
+        console.log("see", studentPropNames)
 
         for (const line of eachLine.slice(1)) {
           const studentRecord = line.split(',');

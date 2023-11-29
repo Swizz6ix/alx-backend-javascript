@@ -15,7 +15,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
     const output = [];
     output.push('This is the list of our students');
     if (err) {
-      reject(new Error('Cannot load the database'));
+      reject('Cannot load the database');
     }
     if (data) {
       const line = data.trim().split('\n');
@@ -44,7 +44,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
           }
         }
         output.push(
-          `Number of student in ${fieldGroups[i]}: ${
+          `Number of students in ${fieldGroups[i]}: ${
             fieldCount[fieldGroups[i]].count
           }. List: ${fieldCount[fieldGroups[i]].list.join(', ')}`,
         );

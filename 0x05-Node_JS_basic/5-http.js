@@ -40,7 +40,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
           }
         }
         output.push(
-          `Number of Students in ${fieldGroups[i]}: ${fieldCount[fieldGroups[i]].count}.List: ${fieldCount[
+          `Number of students in ${fieldGroups[i]}: ${fieldCount[fieldGroups[i]].count}. List: ${fieldCount[
   fieldGroups[i]
 ].list.join(', ')}`,
         );
